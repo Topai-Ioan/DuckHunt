@@ -3,7 +3,7 @@
 
 #include "core/engine.h"
 #include "components/simple_scene.h"
-#include "game/tema1.h"
+#include "game/duckhunt.h"
 
 #ifdef _WIN32
     PREFER_DISCRETE_GPU_NVIDIA;
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     (void)Engine::Init(wp);
 
     // Create a new 3D world and start running it
-    World *world = new game::Tema1();
+    World *world = new game::DuckHunt();
 
     world->Init();
     world->Run();

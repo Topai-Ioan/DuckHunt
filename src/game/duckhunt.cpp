@@ -1,4 +1,4 @@
-#include "game/Tema1.h"
+#include "game/duckhunt.h"
 
 #include <vector>
 #include <iostream>
@@ -11,15 +11,15 @@
 using namespace std;
 using namespace game;
 
-Tema1::Tema1()
+DuckHunt::DuckHunt()
 {
 }
 
-Tema1::~Tema1()
+DuckHunt::~DuckHunt()
 {
 }
 
-void Tema1::Init()
+void DuckHunt::Init()
 {
     Tutorial();
     resolution = window->GetResolution();
@@ -251,7 +251,7 @@ void Tema1::Init()
     }
 }
 
-void Tema1::FrameStart()
+void DuckHunt::FrameStart()
 {
     // Clears the color buffer (using the previously set color) and depth buffer
     glClearColor(0, 0, 0, 1);
@@ -262,7 +262,7 @@ void Tema1::FrameStart()
     glViewport(0, 0, resolution.x, resolution.y);
 }
 
-void Tema1::Update(float deltaTimeSeconds)
+void DuckHunt::Update(float deltaTimeSeconds)
 {
     if (pWasPressed == false)
     {
@@ -636,7 +636,7 @@ void Tema1::Update(float deltaTimeSeconds)
     }
 }
 
-void Tema1::Reinitializare()
+void DuckHunt::Reinitializare()
 {
     // random direction
     followX = -(rand() % 100) + (rand() % 100);
@@ -688,7 +688,7 @@ void Tema1::Reinitializare()
     rataIeseJos = false;
 }
 
-void Tema1::DeseneazaRata(float deltaTimeSeconds)
+void DuckHunt::DeseneazaRata(float deltaTimeSeconds)
 { 
     // ochi
     {
@@ -827,7 +827,7 @@ void Tema1::DeseneazaRata(float deltaTimeSeconds)
     }
 }
 
-void Tema1::DesenareCrossHair(int mouseX, int mouseY)
+void DuckHunt::DesenareCrossHair(int mouseX, int mouseY)
 {
     modelMatrix = glm::mat3(1);
     modelMatrix *= transform2D::Translate(mouseX, 5 + mouseY);
@@ -850,11 +850,11 @@ void Tema1::DesenareCrossHair(int mouseX, int mouseY)
     RenderMesh2D(meshes["crossHairRight"], shaders["VertexColor"], modelMatrix);
 }
 
-void Tema1::FrameEnd()
+void DuckHunt::FrameEnd()
 {
 }
 
-void Tema1::OnInputUpdate(float deltaTime, int mods)
+void DuckHunt::OnInputUpdate(float deltaTime, int mods)
 {
      //for testing
     //if (window->KeyHold(GLFW_KEY_W)) {
@@ -865,7 +865,7 @@ void Tema1::OnInputUpdate(float deltaTime, int mods)
     //}
 }
 
-void Tema1::OnKeyPress(int key, int mods)
+void DuckHunt::OnKeyPress(int key, int mods)
 {
     // reset
     if (key == GLFW_KEY_R)
@@ -899,7 +899,7 @@ void Tema1::OnKeyPress(int key, int mods)
     // Add key press event
 }
 
-void Tema1::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
+void DuckHunt::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
 {
     mouseY = resolution.y - mouseY;
 
@@ -908,7 +908,7 @@ void Tema1::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
     copieMouseY = mouseY;
 }
 
-void Tema1::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
+void DuckHunt::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
 {
     timpPanaEvadeaza = 0;
     if (pWasPressed == false)
@@ -986,12 +986,12 @@ void Tema1::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
 
 }
 
-void Tema1::OnWindowResize(int width, int height)
+void DuckHunt::OnWindowResize(int width, int height)
 {
 
 }
 
-void Tema1::Tutorial()
+void DuckHunt::Tutorial()
 {
     cout << "===============================DuckHunt==========================" << endl;
     cout << "Trebuie sa impusti ratele care zboara" << endl;

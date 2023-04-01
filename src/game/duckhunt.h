@@ -5,11 +5,11 @@
 
 namespace game
 {
-    class Tema1 : public gfxc::SimpleScene
+    class DuckHunt : public gfxc::SimpleScene
     {
     public:
-        Tema1();
-        ~Tema1();
+        DuckHunt();
+        ~DuckHunt();
 
         void Init() override;
 
